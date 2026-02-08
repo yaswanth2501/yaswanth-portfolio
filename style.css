@@ -863,11 +863,7 @@ ul {
     border-color: rgba(104, 212, 98, 0.3);
 }
 
-@media (max-width: 768px) {
-    .stat-card.achievement {
-        grid-column: span 1;
-    }
-}
+/* Separated media query moved to bottom responsive section */
 
 /* .education-card styles removed as they are replaced by .education-item inside .education-full-card */
 
@@ -1213,22 +1209,12 @@ footer {
 }
 
 /* Responsive */
-/* Responsive Design */
+/* Responsive Design - Consolidated */
 @media (max-width: 1024px) {
     .section {
         padding: 80px 5%;
     }
 
-    .hero-content {
-        gap: 2rem;
-    }
-
-    .hero-name {
-        font-size: 3.5rem;
-    }
-}
-
-@media (max-width: 900px) {
     .navbar {
         padding: 20px 5%;
     }
@@ -1245,6 +1231,7 @@ footer {
         top: 0;
         height: 100vh;
         width: 70%;
+        max-width: 300px;
         background-color: rgba(30, 30, 30, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
@@ -1272,6 +1259,12 @@ footer {
         font-size: 1.5rem;
     }
 
+    /* Hero Layout Stack */
+    .hero {
+        padding-top: 100px;
+        /* Reduced top padding for mobile */
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1286,6 +1279,7 @@ footer {
         order: 1;
         display: flex;
         justify-content: center;
+        margin-bottom: 1rem;
     }
 
     .hero-buttons {
@@ -1300,20 +1294,25 @@ footer {
         font-size: 3rem;
     }
 
+    /* Contact Stack */
     .contact-container {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
+    /* Education Stack */
     .education-full-card {
         flex-direction: column;
         gap: 30px;
+        padding: 1.5rem;
     }
 
     .education-item {
         width: 100%;
         border-bottom: 1px solid rgba(104, 212, 98, 0.2);
         padding-bottom: 30px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .education-item:last-child {
@@ -1324,25 +1323,37 @@ footer {
     .education-item:not(:last-child)::after {
         display: none;
     }
+
+    /* Achievement Card Fix */
+    .stat-card.achievement {
+        grid-column: span 1;
+    }
 }
 
 @media (max-width: 600px) {
+    .section {
+        padding: 60px 5%;
+    }
+
     .section-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
     }
 
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .typewriter-container {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         justify-content: center;
+        min-height: 30px;
     }
 
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
     }
 
     .btn {
@@ -1356,11 +1367,13 @@ footer {
 
     .nav-links {
         width: 100%;
+        /* Full width menu on small mobile */
+        max-width: none;
     }
 
     .avatar-image {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
 
     .stat-number {
@@ -1371,13 +1384,44 @@ footer {
         font-size: 0.75rem;
     }
 
+    .profile-stats {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 0.5rem 0.5rem;
+    }
+
     .contact-item {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+        padding: 1.5rem;
     }
 
     .social-links {
         justify-content: center;
+    }
+
+    .project-links {
+        justify-content: center;
+    }
+
+    footer {
+        padding: 30px 20px;
+        margin-top: 50px;
+    }
+
+    /* Animation Keyframes */
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 }
